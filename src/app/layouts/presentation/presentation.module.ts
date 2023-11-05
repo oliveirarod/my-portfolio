@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PresetationComponent } from './presetation.component';
+import { PresentationComponent } from './presentation.component';
 
 
 
 @NgModule({
   declarations: [
-    PresetationComponent
+    PresentationComponent
   ],
   imports: [
     CommonModule
