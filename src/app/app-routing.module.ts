@@ -4,8 +4,7 @@ import { PresentationComponent } from './layouts/presentation/presentation.compo
 
 const routes: Routes = [
   { path: '', component: PresentationComponent },
-  // { path: 'skills', component: SkillsComponent },
-  // { path: 'experience', component: ExperienceComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

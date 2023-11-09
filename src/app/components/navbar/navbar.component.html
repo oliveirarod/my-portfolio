@@ -1,1 +1,7 @@
-<p>navbar works!</p>
+<nav class="fixed top-0 right-0 bg-transparent p-4">
+  <ul class="flex space-x-4 items-center">
+    <li *ngFor="let section of sections" class="cursor-pointer">
+      <a (click)="scrollToSection(section)" class="capitalize">{{ section }}</a>
+    </li>
+  </ul>
+</nav>
