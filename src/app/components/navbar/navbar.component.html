@@ -1,7 +1,7 @@
-<nav class="fixed top-0 right-0 bg-transparent p-4">
+<nav class="fixed top-0 right-0 bg-transparent p-8">
   <ul class="flex space-x-4 items-center">
-    <li *ngFor="let section of sections" class="cursor-pointer">
-      <a (click)="scrollToSection(section)" class="capitalize">{{ section }}</a>
+    <li *ngFor="let section of sections" class="cursor-pointer text-white text-2xl">
+      <a (click)="scrollToSection(section)" class="capitalize px-2">{{ section }}</a>
     </li>
   </ul>
 </nav>
