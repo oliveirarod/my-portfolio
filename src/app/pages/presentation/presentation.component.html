@@ -1,7 +1,12 @@
 <section [id]="sectionId">
-  <div class="container-fluid bg-black">
-    <app-particles>
-      
-    </app-particles>
+  <div class="container-fluid bg-black h-[75vh] relative flex justify-center items-center">
+    <app-particles></app-particles>
+
+    <div class="flex">
+      <h1 class="main-text" [@revealAnimation]="currentPhrase">
+        {{ currentPhrase }}
+      </h1>
+      <div class="h-20 border-l border-white"></div>
+    </div>
   </div>
 </section>
