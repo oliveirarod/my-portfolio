@@ -8,7 +8,7 @@ import { SECTIONS } from 'src/app/utils/constants/sections';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  sections = [SECTIONS.presentation, SECTIONS.skills, SECTIONS.experiences];
+  sections = [SECTIONS.home, SECTIONS.skills, SECTIONS.experiences];
 
   constructor(private router: Router) {}
 

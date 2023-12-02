@@ -1,5 +1,5 @@
 export const SECTIONS = {
-  presentation: 'home',
+  home: 'home',
   skills: 'skills',
   experiences: 'experience',
 };

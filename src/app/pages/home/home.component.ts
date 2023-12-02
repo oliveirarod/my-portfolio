@@ -4,13 +4,13 @@ import { REVEAL_ANIMATION_TOTAL_DURATION, revealAnimation } from 'src/app/utils/
 import { SECTIONS } from 'src/app/utils/constants/sections';
 
 @Component({
-  selector: 'app-presentation',
-  templateUrl: './presentation.component.html',
-  styleUrls: ['./presentation.component.scss'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
   animations: [revealAnimation],
 })
-export class PresentationComponent implements OnInit {
-  sectionId = SECTIONS.presentation;
+export class HomeComponent implements OnInit {
+  sectionId = SECTIONS.home;
 
   phrases: string[] = [
     'I am Rodrigo de Oliveira Ortiz',

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarModule } from './components/navbar/navbar.module';
-import { PresentationModule } from './pages/presentation/presentation.module';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +12,7 @@ import { PresentationModule } from './pages/presentation/presentation.module';
     BrowserModule,
     AppRoutingModule,
     NavbarModule,
-    PresentationModule
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

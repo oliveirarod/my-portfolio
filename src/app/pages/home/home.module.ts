@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { PresentationComponent } from './presentation.component';
+import { HomeComponent } from './home.component';
 import { ParticlesModule } from 'src/app/components/particles/particles.module';
 
 @NgModule({
-  declarations: [PresentationComponent],
+  declarations: [HomeComponent],
   imports: [BrowserAnimationsModule, CommonModule, ParticlesModule],
 })
-export class PresentationModule {}
+export class HomeModule {}
