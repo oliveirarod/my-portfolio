@@ -8,7 +8,7 @@
 			}
 		},
 		"color": {
-			"value": "#999"
+			"value": "#CCC"
 		},
 		"shape": {
 			"type": "circle",
@@ -17,7 +17,7 @@
 			},
 			"stroke": {
 				"width": 3,
-				"color": "#999"
+				"color": "#CCC"
 			}
 		},
 		"opacity": {
@@ -42,8 +42,8 @@
 		},
 		"line_linked": {
 			"enable": true,
-			"distance": 150,
-			"color": "#999",
+			"distance": 175,
+			"color": "#CCC",
 			"opacity": 0.6,
 			"width": 1
 		},
@@ -76,7 +76,7 @@
 		},
 		"modes": {
 			"repulse": {
-				"distance": 100,
+				"distance": 300,
 				"duration": 0.4
 			}
 		}

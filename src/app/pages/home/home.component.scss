@@ -1,8 +1,12 @@
-.main-text {
-	color: white;
-	overflow: hidden;
-	text-wrap: nowrap;
-	background: transparent;
-	font-size: 3rem;
-	font-weight: bold;
+.home-container {
+	background-image: linear-gradient(to right top, #0a0018, #12081d, #171023, #1b1529, #21192f, #231b32, #241d35, #261f38, #241f39, #231f3a, #201f3c, #1e1f3d);
+
+	.main-text {
+		color: white;
+		overflow: hidden;
+		text-wrap: nowrap;
+		background: transparent;
+		font-size: 3rem;
+		font-weight: bold;
+	}
 }
