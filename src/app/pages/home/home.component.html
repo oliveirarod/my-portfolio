@@ -2,11 +2,18 @@
   <div class="home-container container-fluid bg-black h-[80vh] relative flex justify-center items-center">
     <app-particles></app-particles>
 
-    <div class="flex">
-      <h1 class="main-text" [@revealAnimation]="currentPhrase">
-        {{ currentPhrase }}
-      </h1>
-      <div class="h-20 border-l border-white"></div>
+    <div class="w-full flex items-center flex-col z-10">
+      <div class="flex">
+        <h1 class="main-text" [@revealAnimation]="currentPhrase">
+          {{ currentPhrase }}
+        </h1>
+        <div class="h-20 border-l border-white"></div>
+      </div>
+
+      <div class="flex gap-6 mt-6">
+        <button class="outline-button">View work</button>
+        <button class="outline-button">Hire me</button>
+      </div>
     </div>
   </div>
 </section>
