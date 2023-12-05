@@ -27,13 +27,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.startAnimation();
-
-    // anime({
-    //   targets: '.outline-button',
-    //   translateX: [-250, 0],
-    //   rotate: '1turn',
-    //   duration: 1000
-    // });
   }
 
   startAnimation() {

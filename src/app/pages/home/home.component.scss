@@ -1,8 +1,8 @@
 $white-color: #FFF;
-$main-color: #281F37;
+$main-color: #284B63;
 
 .home-container {
-	background-image: linear-gradient(to right top, #0a0018, #12081d, #171023, #1b1529, #21192f, #231b32, #241d35, #261f38, #241f39, #231f3a, #201f3c, #1e1f3d);
+	background-image: linear-gradient(to bottom, #20618e, #215d86, #23597d, #245575, #26516d, #2c4d66, #30485f, #334458, #37404f, #393b46, #38383d, #353535);
 
 	.main-text {
 		color: $white-color;
@@ -17,7 +17,7 @@ $main-color: #281F37;
 		color: $white-color;
 		font-weight: bold;
 		padding: 0.75rem 2rem;
-		border: 1px solid $white-color;
+		border: 2px solid $white-color;
 		border-radius: 2rem;
 		
 
@@ -28,3 +28,7 @@ $main-color: #281F37;
 		}
 	}
 }
+
+// #3C6E71
+// #284B63
+// #CD5334
