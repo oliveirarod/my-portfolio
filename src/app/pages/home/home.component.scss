@@ -1,0 +1,34 @@
+$white-color: #FFF;
+$main-color: #284B63;
+
+.home-container {
+	background-image: linear-gradient(to bottom, #20618e, #215d86, #23597d, #245575, #26516d, #2c4d66, #30485f, #334458, #37404f, #393b46, #38383d, #353535);
+
+	.main-text {
+		color: $white-color;
+		overflow: hidden;
+		text-wrap: nowrap;
+		background: transparent;
+		font-size: 3rem;
+		font-weight: bold;
+	}
+
+	.outline-button {
+		color: $white-color;
+		font-weight: bold;
+		padding: 0.75rem 2rem;
+		border: 2px solid $white-color;
+		border-radius: 2rem;
+		
+
+		&:hover {
+			background: $white-color;
+			color: $main-color;
+			border-color: $main-color;
+		}
+	}
+}
+
+// #3C6E71
+// #284B63
+// #CD5334
