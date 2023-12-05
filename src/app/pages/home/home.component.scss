@@ -1,8 +1,9 @@
 $white-color: #FFF;
-$main-color: #284B63;
+$black-color: #000;
 
 .home-container {
-	background-image: linear-gradient(to bottom, #20618e, #215d86, #23597d, #245575, #26516d, #2c4d66, #30485f, #334458, #37404f, #393b46, #38383d, #353535);
+	background-image: url('../../../assets/background.jpg');
+	background-position: center;
 
 	.main-text {
 		color: $white-color;
@@ -23,12 +24,7 @@ $main-color: #284B63;
 
 		&:hover {
 			background: $white-color;
-			color: $main-color;
-			border-color: $main-color;
+			color: $black-color;
 		}
 	}
 }
-
-// #3C6E71
-// #284B63
-// #CD5334

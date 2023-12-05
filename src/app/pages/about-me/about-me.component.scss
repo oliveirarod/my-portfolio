@@ -1,11 +1,19 @@
-$secondary-color: #43AEF6;
+$primary-color: #14213D;
+$secondary-color: #FCA311;
+$gray-color: #E5E5E5;
+$text-gray-color: #505050;
+$black-color: #000000;
 $photo-frame-size: 0.75rem;
 
 .about-me-title-container {
-  color: #FFF;
+  color: $text-gray-color;
 
   span {
     color: $secondary-color;
+  }
+
+  p {
+    color: $text-gray-color;
   }
 
   .divider {
@@ -14,11 +22,5 @@ $photo-frame-size: 0.75rem;
 }
 
 .about-me-desc-container {
-  img {
-    padding: $photo-frame-size;
-    border: calc(2 * $photo-frame-size) solid #0000;
-    outline: 2px solid $secondary-color;
-    outline-offset: calc(-1 * $photo-frame-size);
-    background: conic-gradient(from 90deg at 1px 1px,#0000 25%,$secondary-color 0);
-  }
+  
 }
