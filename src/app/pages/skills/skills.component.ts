@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
   cardsAnimation = {
-    translateX: [15, 0],
-    translateY: [15, 0],
+    translateX: [10, 0],
+    translateY: [10, 0],
     duration: 1000,
     easing: 'easeInOutSine',
   };

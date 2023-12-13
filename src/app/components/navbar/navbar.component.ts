@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SECTIONS } from 'src/app/utils/constants/sections';
+import { Sections } from 'src/app/utils/interfaces/sections';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +8,7 @@ import { SECTIONS } from 'src/app/utils/constants/sections';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  sections = [SECTIONS.home, SECTIONS.skills, SECTIONS.experiences];
+  sections = [Sections.HOME, Sections.SKILLS, Sections.EXPERIENCES];
 
   constructor(private router: Router) {}
 
