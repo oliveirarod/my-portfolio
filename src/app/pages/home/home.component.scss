@@ -4,7 +4,7 @@ $black-color: #000;
 .home-container {
 	background-image: url('../../../assets/background.jpg');
 	background-position: center;
-	max-height: 70 0px;
+	max-height: 700px;
 
 	.main-text {
 		color: $white-color;
@@ -19,9 +19,9 @@ $black-color: #000;
 		color: $white-color;
 		font-weight: bold;
 		padding: 0.75rem 2rem;
-		border: 2px solid $white-color;
+		border: 1px solid $white-color;
 		border-radius: 2rem;
-		
+		font-size: 0.75rem;
 
 		&:hover {
 			background: $white-color;
