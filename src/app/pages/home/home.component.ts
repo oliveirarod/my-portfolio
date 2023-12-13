@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import anime from 'animejs/lib/anime.es.js';
 
 import { SECTIONS } from 'src/app/utils/constants/sections';
 import {
