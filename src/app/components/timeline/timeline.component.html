@@ -1,0 +1,25 @@
+<section class="timeline container mx-auto relative mb-20 max-w-[1000px]">
+  <ng-container *ngFor="let block of blocks; let i = index">
+    <div
+      class="timeline-item w-full d-flex flex-col relative flex mb-6"
+      [ngClass]="{
+        'work-block': block.isWorkExp,
+        'education-block': !block.isWorkExp,
+        'pulled-up-block': shouldPullUpBlock(i)
+      }"
+    >
+      <div class="timeline-point absolute rounded-full"></div>
+
+      <div class="timeline-item-header flex justify-center items-center z-10">
+        {{ block.date }}
+        <span class="mx-2">-</span>
+        <span>{{ block.isWorkExp ? "Work experience" : "Qualifications" }}</span>
+      </div>
+
+      <div class="timeline-content relative py-4 px-8 shadow-xl">
+        <h2>{{ block.title }}</h2>
+        <p>{{ block.desc }}</p>
+      </div>
+    </div>
+  </ng-container>
+</section>

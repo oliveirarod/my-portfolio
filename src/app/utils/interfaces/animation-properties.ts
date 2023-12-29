@@ -1,4 +1,4 @@
-import { DirectionOptions, EasingOptions } from "animejs";
+import { EasingOptions } from "animejs";
 
 export interface AnimationProperties {
 	targets?: string | string[] | HTMLElement,

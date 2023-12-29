@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { HomeModule } from './sections/home/home.module';
 import { SkillsModule } from './sections/skills/skills.module';
+import { ExperiencesModule } from './sections/experiences/experiences.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +15,8 @@ import { SkillsModule } from './sections/skills/skills.module';
     AppRoutingModule,
     NavbarModule,
     HomeModule,
-    SkillsModule
+    SkillsModule,
+    ExperiencesModule
   ],
   providers: [],
   bootstrap: [AppComponent],

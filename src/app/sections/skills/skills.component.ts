@@ -12,7 +12,7 @@ export class SkillsComponent {
       skill: 'Front-end',
       desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting.',
       animationProperties: {
-        translateX: [-25, 0],
+        translateX: [-300, 0],
         opacity: [0, 1],
         duration: 1000,
         delay: 300,
@@ -23,7 +23,7 @@ export class SkillsComponent {
       skill: 'Back-end',
       desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting.',
       animationProperties: {
-        translateX: [-25, 0],
+        translateX: [-300, 0],
         opacity: [0, 1],
         duration: 1000,
         easing: 'easeInOutSine'
@@ -33,7 +33,7 @@ export class SkillsComponent {
       skill: 'Design',
       desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting.',
       animationProperties: {
-        translateX: [25, 0],
+        translateX: [300, 0],
         opacity: [0, 1],
         duration: 1000,
         easing: 'easeInOutSine'
@@ -43,7 +43,7 @@ export class SkillsComponent {
       skill: 'Others',
       desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting.',
       animationProperties: {
-        translateX: [25, 0],
+        translateX: [300, 0],
         opacity: [0, 1],
         duration: 1000,
         delay: 300,

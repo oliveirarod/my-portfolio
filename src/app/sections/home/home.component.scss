@@ -2,8 +2,9 @@ $white-color: #FFF;
 $black-color: #000;
 
 .home-container {
-	background-image: url('../../../assets/background.jpg');
+	background-image: url('../../../assets/images/background.jpg');
 	background-position: center;
+	background-attachment: fixed;
 	max-height: 700px;
 
 	.main-text {
