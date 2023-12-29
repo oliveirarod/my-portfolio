@@ -2,4 +2,12 @@
 
 .app-container {
 	background: $light-gray-color;
+
+	& > * {
+		padding-bottom: 4rem;
+
+		&:not(:nth-child(1)) {
+			padding-bottom: 6rem;
+		}
+	}
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { TimelineService } from './../../services/timeline.service';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { TimelineBlock } from 'src/app/utils/interfaces/timeline-block';
 
 @Component({
@@ -7,72 +8,23 @@ import { TimelineBlock } from 'src/app/utils/interfaces/timeline-block';
   styleUrls: ['./timeline.component.scss'],
 })
 export class TimelineComponent implements OnInit {
-  // TODO: transformar a data para o tipo date
-  // TODO: Jogar todo esse código para uma service para manter organizado
-  blocks: TimelineBlock[] = [
-    {
-      id: 1,
-      title: 'Title',
-      isWorkExp: false,
-      date: '2019',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsaratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.',
-    },
-    {
-      id: 1,
-      title: 'Title',
-      isWorkExp: true,
-      date: '2019',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsaratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.',
-    },
-    {
-      id: 2,
-      title: 'Title',
-      isWorkExp: false,
-      date: '2021',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsaratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.',
-    },
-    {
-      id: 3,
-      title: 'Title',
-      isWorkExp: true,
-      date: '2021',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsaratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.',
-    },
-    {
-      id: 4,
-      title: 'Title',
-      isWorkExp: true,
-      date: '2022',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsaratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.',
-    },
-    {
-      id: 5,
-      title: 'Title',
-      isWorkExp: true,
-      date: '2023',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsaratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.',
-    },
-    {
-      id: 6,
-      title: 'Title',
-      isWorkExp: false,
-      date: '2023',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsaratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.',
-    },
-  ];
+  @Input() showHeaders = false;
+  isMobile: boolean = false;
 
+  @HostListener('window:resize', ['$event'])
+  setIsMobileOnResize() {
+    this.isMobile = window.innerWidth < 795;
+  }
+
+  blocks!: TimelineBlock[];
   blockDates: { date: string; isWorkExp: boolean }[] = [];
 
   ngOnInit(): void {
-    this.initializeBlockDates();
+    this.getBlocks();
+    this.setIsMobileOnResize();
   }
 
-  initializeBlockDates(): void {
-    this.blockDates = this.blocks.map(({ date, isWorkExp }) => ({
-      date,
-      isWorkExp,
-    }));
-  }
+  constructor(private timelineService: TimelineService) {}
 
   shouldPullUpBlock(index: number): boolean {
     const previousBlock = this.blockDates[index - 1];
@@ -84,5 +36,16 @@ export class TimelineComponent implements OnInit {
       previousBlock?.isWorkExp !== currentBlock.isWorkExp;
 
     return hasPreviousBlock && isSameDate && hasDifferentWorkExp;
+  }
+
+  getBlocks(): void {
+    this.timelineService.getBlocks().subscribe((blocks) => {
+      this.blocks = blocks;
+
+      this.blockDates = this.blocks.map(({ date, isWorkExp }) => ({
+        date,
+        isWorkExp,
+      }));
+    });
   }
 }

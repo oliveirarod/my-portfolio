@@ -24,6 +24,7 @@ $content-margin-left-mobile: 10vw;
 
 // Styles
 .timeline {
+  // Line
   &::before {
     content: "";
     background: $primary-color;
