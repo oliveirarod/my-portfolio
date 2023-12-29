@@ -6,8 +6,7 @@
   "
 ></app-section-title>
 
-<!-- TODO: Ajustar responsividade -->
-<div class="cards container px-4 mx-auto grid md:grid-cols-4 gap-8">
+<div class="cards container px-4 mx-auto max-w-[1250px]">
   <ng-container *ngFor="let card of cards">
     <app-card
       [skill]="card.skill"
