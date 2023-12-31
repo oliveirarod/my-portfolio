@@ -8,7 +8,7 @@ import { Sections } from 'src/app/utils/interfaces/sections';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  sections = [Sections.HOME, Sections.SKILLS, Sections.EXPERIENCES];
+  navItems = [Sections.HOME, Sections.SKILLS, Sections.EXPERIENCES, 'Download CV'];
   showBackground = false;
 
   @HostListener('window:scroll')

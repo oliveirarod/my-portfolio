@@ -5,13 +5,9 @@
     background: $primary-color;
     transition: $default-transition;
 
-    li {
-      color: #b8b8b8;
-
-      :hover {
-        transition: $default-transition;
-        color: $white-color;
-      }
+    li:hover {
+      font-weight: 600;
+      margin-right: -4px;
     }
   }
 
