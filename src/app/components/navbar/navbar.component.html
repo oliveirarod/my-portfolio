@@ -1,7 +1,15 @@
-<nav class="fixed top-0 right-0 bg-transparent py-6 px-14 z-10">
+<nav
+  class="navbar-container fixed top-0 w-full py-4 px-10 z-20 flex justify-end"
+  [ngClass]="{ 'showBackground': showBackground }"
+>
   <ul class="flex space-x-4 items-center">
-    <li *ngFor="let section of sections" class="cursor-pointer text-white font-bold tracking-wider text-base">
-      <a (click)="scrollToSection(section)" class="capitalize px-2">{{ section }}</a>
+    <li
+      *ngFor="let section of sections"
+      class="cursor-pointer text-white tracking-wider text-base"
+    >
+      <a (click)="scrollToSection(section)" class="capitalize px-2">
+        {{ section }}
+      </a>
     </li>
   </ul>
 </nav>

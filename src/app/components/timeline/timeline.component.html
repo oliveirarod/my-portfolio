@@ -1,7 +1,8 @@
+<!-- TODO: Ajustar animações -->
 <div class="container max-w-[1250px] mx-auto pl-6 pr-10">
   <div
     *ngIf="showHeaders && !isMobile"
-    class="headers mb-4 grid grid-cols-2 text-2xl font-bold"
+    class="headers my-4 grid grid-cols-2 text-2xl font-bold"
   >
     <span class="ml-4">Qualifications:</span>
     <span class="ml-[4.5rem]">Experiences:</span>
@@ -19,7 +20,7 @@
       >
         <div class="timeline-point absolute rounded-full"></div>
 
-        <div class="timeline-item-header flex justify-center items-center z-10">
+        <div class="timeline-item-header flex justify-center items-center z-1">
           {{ block.date }}
           <ng-container *ngIf="showHeaders && isMobile">
             <span class="mx-2">-</span>

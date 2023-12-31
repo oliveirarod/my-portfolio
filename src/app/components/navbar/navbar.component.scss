@@ -1,0 +1,22 @@
+@import "../../../styles/variables";
+
+.navbar-container {
+  &.showBackground {
+    background: $primary-color;
+    transition: $default-transition;
+
+    li {
+      color: #b8b8b8;
+
+      :hover {
+        transition: $default-transition;
+        color: $white-color;
+      }
+    }
+  }
+
+  &:not(.showBackground) li:hover {
+    transition: $default-transition;
+    color: $secondary-color;
+  }
+}

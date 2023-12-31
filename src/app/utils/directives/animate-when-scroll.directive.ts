@@ -13,12 +13,13 @@ import { AnimationProperties } from '../interfaces/animation-properties';
   selector: '[appAnimateWhenScrollDirective]',
 })
 export class AnimateWhenScrollDirective implements OnInit {
-  @Input() animationProperties: AnimationProperties = {};
+  @Input() animationProperties: AnimationProperties | undefined = {};
   private animationExecuted = false;
 
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
+    if (!this.animationProperties) return;
     this.checkScroll();
   }
 
