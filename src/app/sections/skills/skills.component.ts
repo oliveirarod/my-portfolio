@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SkillCardInfo } from 'src/app/utils/interfaces/skill-card-info';
 
 @Component({

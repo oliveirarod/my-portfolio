@@ -2,7 +2,7 @@
 
 .navbar-container {
   &.showBackground {
-    background: $primary-color;
+    background: $secondary-color;
     transition: $default-transition;
 
     li:hover {
@@ -13,6 +13,6 @@
 
   &:not(.showBackground) li:hover {
     transition: $default-transition;
-    color: $secondary-color;
+    color: $primary-color;
   }
 }

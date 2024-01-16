@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Sections } from 'src/app/utils/interfaces/sections';
 
@@ -7,22 +7,18 @@ import { Sections } from 'src/app/utils/interfaces/sections';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
-  navItems = [Sections.HOME, Sections.SKILLS, Sections.EXPERIENCES, 'Download CV'];
+export class NavbarComponent {
+  navItems = [Sections.HOME, Sections.SKILLS, Sections.EXPERIENCES];
   showBackground = false;
 
   @HostListener('window:scroll')
   setNavbarBgOnScroll() {
-    const scrollThreshold = window.innerHeight * 0.25;
+    const scrollThreshold = window.innerHeight * 0.15;
     const scrolledBelowThreshold = window.scrollY >= scrollThreshold;
     this.showBackground = scrolledBelowThreshold;
   }
 
   constructor(private router: Router) {}
-
-  ngOnInit(): void {
-    
-  }
 
   scrollToSection(sectionId: string) {
     this.router.navigate(['/' + sectionId]);

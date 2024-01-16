@@ -1,3 +1,19 @@
 @mixin box-shadow($color) {
   box-shadow: 0px 15px 10px -12px $color;
 }
+
+@mixin outline-button($color, $hover-color) {
+  background: transparent;
+  border: 1px solid $color;
+  color: $color;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  transition: 250ms;
+
+  &:hover {
+    background: $color;
+    color: $hover-color;
+  }
+}

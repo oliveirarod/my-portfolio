@@ -27,7 +27,7 @@ $content-margin-left-mobile: 10vw;
   // Line
   &::before {
     content: "";
-    background: $primary-color;
+    background: $secondary-color;
     width: 4px;
     height: 100%;
     position: absolute;
@@ -44,7 +44,7 @@ $content-margin-left-mobile: 10vw;
   .timeline-item {
     .timeline-point {
       background: $light-gray-color;
-      border: 3px solid $primary-color;
+      border: 3px solid $secondary-color;
       margin-top: calc($point-margin-top);
       left: calc($line-position-mobile - 10px);
       height: $point-size;
@@ -52,7 +52,7 @@ $content-margin-left-mobile: 10vw;
     }
 
     .timeline-item-header {
-      background: $primary-color;
+      background: $secondary-color;
       color: $white-color;
       height: $header-height;
       width: $content-width-mobile;
@@ -67,7 +67,7 @@ $content-margin-left-mobile: 10vw;
         border-width: 0 0 $header-detail-size
           $header-detail-size;
         border-color: transparent transparent transparent
-          $primary-color-dark;
+          $secondary-color-dark;
         left: calc(86.5% + $content-margin-left-mobile);
       }
     }
@@ -94,7 +94,7 @@ $content-margin-left-mobile: 10vw;
             border-width: 0 0 $header-detail-size
               $header-detail-size;
             border-color: transparent transparent transparent
-              $primary-color-dark;
+              $secondary-color-dark;
             left: 100%;
           }
         }
@@ -110,7 +110,7 @@ $content-margin-left-mobile: 10vw;
             position: absolute;
             border-width: 0 $header-detail-size
               $header-detail-size 0;
-            border-color: transparent $primary-color-dark transparent
+            border-color: transparent $secondary-color-dark transparent
               transparent;
             left: 0;
           }
