@@ -13,7 +13,7 @@ import { AnimationProperties } from '../interfaces/animation-properties';
   selector: '[appAnimateWhenScrollDirective]',
 })
 export class AnimateWhenScrollDirective implements OnInit {
-  @Input() animationProperties: AnimationProperties | undefined = {};
+  @Input() animationProperties!: AnimationProperties;
   private animationExecuted = false;
 
   constructor(private elementRef: ElementRef) {}

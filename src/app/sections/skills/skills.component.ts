@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { createAnimation } from 'src/app/utils/functions/createAnimation';
 import { SkillCardInfo } from 'src/app/utils/interfaces/skill-card-info';
 
 @Component({
@@ -8,45 +9,39 @@ import { SkillCardInfo } from 'src/app/utils/interfaces/skill-card-info';
 })
 export class SkillsComponent {
   cards: SkillCardInfo[] = [
-    {
-      skill: 'Front-end',
-      desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting.',
-      animationProperties: {
-        translateX: [-600, 0],
-        opacity: [0, 1],
-        duration: 1000,
-        easing: 'easeInOutSine'
-      }
-    },
-    {
-      skill: 'Back-end',
-      desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting.',
-      animationProperties: {
-        translateX: [-300, 0],
-        opacity: [0, 1],
-        duration: 1000,
-        easing: 'easeInOutSine'
-      }
-    },
-    {
-      skill: 'Design',
-      desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting.',
-      animationProperties: {
-        translateX: [300, 0],
-        opacity: [0, 1],
-        duration: 1000,
-        easing: 'easeInOutSine'
-      }
-    },
-    {
-      skill: 'Others',
-      desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting.',
-      animationProperties: {
-        translateX: [600, 0],
-        opacity: [0, 1],
-        duration: 1000,
-        easing: 'easeInOutSine'
-      }
-    },
-  ]
+    this.createSkillCard(
+      'Front-end',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting.',
+      -600
+    ),
+    this.createSkillCard(
+      'Back-end',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting.',
+      -300
+    ),
+    this.createSkillCard(
+      'Design',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting.',
+      300
+    ),
+    this.createSkillCard(
+      'Others',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting.',
+      600
+    ),
+  ];
+
+  private createSkillCard(
+    skill: string,
+    desc: string,
+    translateX: number
+  ): SkillCardInfo {
+    return {
+      skill,
+      desc,
+      animationProperties: createAnimation({
+        translateX: [translateX, 0],
+      }),
+    };
+  }
 }
