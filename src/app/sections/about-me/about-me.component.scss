@@ -1,0 +1,41 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+$border: 4px;
+$gap-before: 8px;
+$gap-after: 0px;
+
+.image-container {
+  width: 300px;
+  height: 300px;
+  padding: $gap-before;
+  border-bottom: $border solid $primary-color;
+  transition: 200ms;
+
+  &:hover {
+    padding: $gap-after;
+  }
+
+  @media (min-width: 1024px) {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.text-container {
+  .title {
+    font-size: 1.5rem;
+
+    .highlight {
+      color: $primary-color;
+    }
+  }
+
+  .desc {
+    color: $default-text-color;
+  }
+
+  .outline-button {
+    @include outline-button($primary-color, $white-color);
+  }
+}

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ScrollAnimationDirective } from './scroll-animation.directive';
+import { AnimateWhenScrollDirective } from './animate-when-scroll.directive';
 
 @NgModule({
-  declarations: [ScrollAnimationDirective],
+  declarations: [AnimateWhenScrollDirective],
   imports: [CommonModule],
-  exports: [ScrollAnimationDirective],
+  exports: [AnimateWhenScrollDirective],
 })
 export class DirectivesModule {}

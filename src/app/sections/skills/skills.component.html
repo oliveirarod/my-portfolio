@@ -1,0 +1,19 @@
+<app-section-title
+  [titleText]="'My'"
+  [titleHighlight]="'Skills'"
+  [desc]="
+    'Lorem Ipsum is simply dummy text of the printing and typesetting. industry. Lorem Ipsum standard dummy text.'
+  "
+></app-section-title>
+
+<!-- TODO: Ajustar animações -->
+<div class="cards container px-12 mx-auto max-w-[1250px]">
+  <ng-container *ngFor="let card of cards">
+    <app-card
+      [skill]="card.skill"
+      [desc]="card.desc"
+      appAnimateWhenScrollDirective
+      [animationProperties]="card.animationProperties"
+    ></app-card>
+  </ng-container>
+</div>

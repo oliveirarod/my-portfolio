@@ -4,8 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarModule } from './components/navbar/navbar.module';
-import { HomeModule } from './pages/home/home.module';
-import { SkillsModule } from './pages/skills/skills.module';
+import { HomeModule } from './sections/home/home.module';
+import { SkillsModule } from './sections/skills/skills.module';
+import { ExperiencesModule } from './sections/experiences/experiences.module';
+import { AboutMeModule } from './sections/about-me/about-me.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +16,9 @@ import { SkillsModule } from './pages/skills/skills.module';
     AppRoutingModule,
     NavbarModule,
     HomeModule,
-    SkillsModule
+    AboutMeModule,
+    SkillsModule,
+    ExperiencesModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,21 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.home-container {
+	background-image: url('../../../assets/images/background.jpg');
+	background-position: center;
+	max-height: 700px;
+
+	.main-text {
+		color: $white-color;
+		overflow: hidden;
+		text-wrap: nowrap;
+		background: transparent;
+		font-size: 3rem;
+		font-weight: bold;
+	}
+
+	.outline-button {
+		@include outline-button($white-color, $black-color);
+	}
+}
