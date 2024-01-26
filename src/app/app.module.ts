@@ -20,7 +20,7 @@ import { ContactModule } from './sections/contact/contact.module';
     AboutMeModule,
     SkillsModule,
     ExperiencesModule,
-    ContactModule
+    ContactModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
