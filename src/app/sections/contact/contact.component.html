@@ -6,3 +6,83 @@
   "
 ></app-section-title>
 
+<!-- TODO: Ajustar animacoes e validações -->
+<form class="container mx-auto px-6" [formGroup]="form">
+  <div class="lg:flex gap-12 mb-4">
+    <ng-container *ngFor="let formControl of formControls">
+      <div class="relative mb-6 h-11 w-full lg:w-1/3">
+        <input
+          placeholder="Standard"
+          class="contact-input peer w-full bg-transparent pt-4 pb-1.5 text-sm font-normal focus:outline-0 placeholder:opacity-0 focus:placeholder:opacity-100"
+          [formControlName]="formControl"
+        />
+
+        <label
+          class="after:content[''] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500"
+        >
+          {{ formControl }}
+        </label>
+
+        <!-- TODO: Implementar futuramente? -->
+        <!-- <small *ngIf="formControl === 'contact'" class="text-xs text-gray-400"
+          >(phone or e-mail)</small
+        > -->
+
+        <ng-container
+          *ngIf="
+            form.get(formControl)?.invalid && form.get(formControl)?.touched
+          "
+        >
+          <small class="text-xs text-red-700 mt-1">
+            <ng-container *ngIf="form.get(formControl)?.hasError('required')">
+              {{ formControl | titlecase }} is required
+            </ng-container>
+
+            <ng-container *ngIf="form.get(formControl)?.hasError('email')">
+              Please enter a valid email address
+            </ng-container>
+
+            <ng-container *ngIf="form.get(formControl)?.hasError('minlength')">
+              Value must be at least
+              {{ form.get(formControl)?.getError("minlength").requiredLength }}
+            </ng-container>
+          </small>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="mb-4">
+    <label for="message" class="block text-sm font-medium text-gray-500"
+      >Your Message</label
+    >
+
+    <textarea
+      id="message"
+      #textarea
+      name="message"
+      rows="4"
+      class="mt-1 p-2 w-full border rounded-md bg-transparent text-gray-700 text-sm"
+      formControlName="message"
+    ></textarea>
+
+    <ng-container
+      *ngIf="
+        form.get(textarea.id)?.invalid &&
+        form.get(textarea.id)?.touched &&
+        form.get(textarea.id)?.hasError('required')
+      "
+    >
+      <small class="text-xs text-red-700 mt-1">
+        {{ textarea.id | titlecase }} is required
+        <ng-container *ngIf=""> </ng-container>
+      </small>
+    </ng-container>
+  </div>
+
+  <div class="flex justify-center mt-6">
+    <button type="submit" class="submit-button" (click)="submit()">
+      Submit
+    </button>
+  </div>
+</form>
