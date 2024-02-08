@@ -1,13 +1,16 @@
-@import '../styles/variables';
+@import "../styles/variables";
 
 .app-container {
-	background: $light-gray-color;
+  background: $light-gray-color;
 
-	& > * {
-		padding-bottom: 4rem;
+  & > *:first-child {
+    padding-bottom: 4rem;
+  }
 
-		&:not(:nth-child(1)) {
-			padding-bottom: 6rem;
-		}
-	}
+  .sections-container > * {
+    padding-bottom: 6rem;
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+  }
 }

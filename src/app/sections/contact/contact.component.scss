@@ -1,0 +1,20 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.contact-input {
+  border-bottom: 1px solid $gray-color;
+  color: $default-text-color;
+
+  &::placeholder {
+    color: $lightest-text-color;
+  }
+}
+
+#message {
+  border-color: $gray-color;
+}
+
+.submit-button {
+  @include outline-button($primary-color, $white-color);
+  width: 200px;
+}
