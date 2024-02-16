@@ -1,6 +1,4 @@
-import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
-import { Sections } from 'src/app/utils/interfaces/sections';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,22 +6,14 @@ import { Sections } from 'src/app/utils/interfaces/sections';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  navItems = [Sections.HOME, Sections.SKILLS, Sections.EXPERIENCES];
-  showBackground = false;
+  isMenuOpen: boolean = false;
 
-  @HostListener('window:scroll')
-  setNavbarBgOnScroll() {
-    const scrollThreshold = window.innerHeight * 0.15;
-    const scrolledBelowThreshold = window.scrollY >= scrollThreshold;
-    this.showBackground = scrolledBelowThreshold;
-  }
+  name = 'Rodrigo O.Ortiz';
+  navItems: string[] = ['Home', 'About', 'Services', 'Contact'];
 
-  constructor(private router: Router) {}
+  constructor() {}
 
-  scrollToSection(sectionId: string) {
-    this.router.navigate(['/' + sectionId]);
-
-    const element = document.getElementById(sectionId);
-    element && element.scrollIntoView({ behavior: 'smooth' });
+  toggleMenu(isMenuOpen: boolean) {
+    this.isMenuOpen = isMenuOpen;
   }
 }

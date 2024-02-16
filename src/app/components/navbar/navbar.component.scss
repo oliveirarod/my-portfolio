@@ -1,18 +1,23 @@
 @import "../../../styles/variables";
 
-.navbar-container {
-  &.showBackground {
-    background: $secondary-color;
-    transition: $default-transition;
+nav {
+  background: $secondary-color;
+}
 
-    li:hover {
-      font-weight: 600;
-      margin-right: -4px;
-    }
+.mobile-menu {
+  background: $light-gray-color;
+  opacity: 0;
+  transition: $default-transition;
+
+  &.open {
+    opacity: 1;
   }
 
-  &:not(.showBackground) li:hover {
-    transition: $default-transition;
-    color: $primary-color;
+  a {
+    color: $lighter-text-color;
+
+    &:hover {
+      color: $default-text-color;
+    }
   }
 }
