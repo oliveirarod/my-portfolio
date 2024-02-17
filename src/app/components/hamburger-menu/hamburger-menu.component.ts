@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostListener,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -17,9 +18,16 @@ export class HamburgerMenuComponent {
 
   @Output() onMenuClick = new EventEmitter<boolean>();
 
+  @HostListener('window:resize')
+  onResize() {
+    if (this.isMenuOpen && window.innerWidth > 768) {
+      this.emitMenuChange();
+    }
+  }
+
   constructor() {}
 
-  emitMenuClick() {
+  emitMenuChange() {
     this.isMenuOpen = !this.isMenuOpen;
     this.animateMenu();
 
@@ -28,13 +36,17 @@ export class HamburgerMenuComponent {
 
   animateMenu() {
     const menu = this.navbarMenu.nativeElement;
+    const isOpen = menu.classList.contains('menu');
 
-    menu.classList.contains('menu')
-      ? (menu.className = 'close')
-      : (menu.className = 'menu');
+    menu.classList.toggle('close', isOpen);
+    menu.classList.toggle('menu', !isOpen);
 
+    this.hideScrollbar();
+  }
+
+  hideScrollbar() {
     this.isMenuOpen
-      ? document.documentElement.style.overflow = 'hidden'
-      : document.documentElement.style.overflow = '';
+      ? (document.documentElement.style.overflow = 'hidden')
+      : (document.documentElement.style.overflow = '');
   }
 }

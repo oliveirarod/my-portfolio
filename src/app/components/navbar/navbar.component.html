@@ -1,4 +1,7 @@
-<nav class="bg-gray-800 p-4">
+<nav
+  class="fixed top-0 left-0 w-full h-16 z-50 bg-gray-800 p-4 bg-transparent"
+  [ngClass]="{ showBackground: showBackground || isMenuOpen }"
+>
   <div class="h-8 flex items-center justify-between">
     <div class="flex items-center">
       <!-- TODO: Add a link to the home -->
@@ -8,17 +11,20 @@
     <div class="hidden md:flex">
       <ng-container *ngFor="let item of navItems">
         <!-- TODO: Add a link to the respective section -->
-        <a href="#" class="mx-4">{{ item }}</a>
+        <a href="#" class="mx-4 text-white">{{ item }}</a>
       </ng-container>
     </div>
 
-    <app-hamburger-menu (onMenuClick)="toggleMenu($event)"></app-hamburger-menu>
+    <app-hamburger-menu
+      class="md:hidden"
+      (onMenuClick)="toggleMenu($event)"
+    ></app-hamburger-menu>
   </div>
 </nav>
 
 <div
   class="mobile-menu fixed top-16 left-0 w-full h-full z-50"
-  [ngClass]="{ 'open': isMenuOpen }"
+  [ngClass]="{ open: isMenuOpen }"
 >
   <div class="flex flex-col items-center justify-center h-full">
     <ng-container *ngFor="let item of navItems">

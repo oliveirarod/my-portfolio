@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +7,18 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   isMenuOpen: boolean = false;
+  showBackground: boolean = false;
 
-  name = 'Rodrigo O.Ortiz';
+  name: string = 'Rodrigo O. Ortiz';
   navItems: string[] = ['Home', 'About', 'Services', 'Contact'];
+
+  @HostListener('window:scroll')
+  setNavbarBgOnScroll() {
+    console.log("tests")
+    const scrollThreshold = window.innerHeight * 0.15;
+    const scrolledBelowThreshold = window.scrollY >= scrollThreshold;
+    this.showBackground = scrolledBelowThreshold;
+  }
 
   constructor() {}
 
