@@ -23,8 +23,8 @@
 </nav>
 
 <div
-  class="mobile-menu fixed top-16 left-0 w-full h-full z-50"
-  [ngClass]="{ open: isMenuOpen }"
+  class="mobile-menu fixed top-16 left-0 w-full h-full"
+  [ngClass]="{ 'open': isMenuOpen }"
 >
   <div class="flex flex-col items-center justify-center h-full">
     <ng-container *ngFor="let item of navItems">
