@@ -9,7 +9,11 @@
 <div
   class="container mx-auto px-10 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-10"
 >
-  <div class="image-container rounded-full m-auto">
+  <div
+    class="image-container rounded-full m-auto"
+    appAnimateWhenScrollDirective
+    [animationProperties]="imgAnimation"
+  >
     <img
       src="../../../../assets/images/self.jpg"
       alt="self"
@@ -18,7 +22,11 @@
   </div>
 
   <div class="text-container flex flex-col justify-between gap-8 pr-0 lg:pr-16">
-    <div class="flex flex-col justify-between gap-4">
+    <div
+      class="flex flex-col justify-between gap-4"
+      appAnimateWhenScrollDirective
+      [animationProperties]="titleAnimation"
+    >
       <h1 class="title font-bold text-center">
         {{ title.greetings }}
         <span class="highlight">
@@ -26,9 +34,21 @@
         </span>
       </h1>
 
-      <p class="desc text-justify">{{ desc }}</p>
+      <p
+        class="desc text-justify"
+        appAnimateWhenScrollDirective
+        [animationProperties]="descAnimation"
+      >
+        {{ desc }}
+      </p>
     </div>
 
-    <button class="outline-button mx-auto w-[180px]">Download CV</button>
+    <button
+      class="outline-button mx-auto w-[180px]"
+      appAnimateWhenScrollDirective
+      [animationProperties]="btnAnimation"
+    >
+      Download CV
+    </button>
   </div>
 </div>

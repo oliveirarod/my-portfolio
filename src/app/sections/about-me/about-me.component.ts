@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { createAnimation } from 'src/app/utils/functions/createAnimation';
+import { AnimationProperties } from 'src/app/utils/interfaces/animation-properties';
 
 @Component({
   selector: 'app-about-me',
@@ -19,4 +21,24 @@ export class AboutMeComponent {
     { name: 'GitHub', value: 'github-link' },
     { name: 'E-mail', value: 'email@example.com' },
   ];
+
+  // Animations
+  imgAnimation: AnimationProperties = createAnimation({
+    translateY: [50, 0],
+    opacity: 1
+  });
+
+  titleAnimation: AnimationProperties = createAnimation({
+    translateY: [25, 0],
+  });
+
+  descAnimation: AnimationProperties = createAnimation({
+    translateY: [25, 0],
+    delay: 100,
+  });
+
+  btnAnimation: AnimationProperties = createAnimation({
+    translateY: [25, 0],
+    delay: 200,
+  });
 }

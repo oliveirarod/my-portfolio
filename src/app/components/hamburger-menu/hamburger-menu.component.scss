@@ -1,0 +1,182 @@
+$menu-line-height: 3px;
+$menu-space: 8px;
+$menu-size: ($menu-space * 2) + ($menu-line-height * 3);
+$menu-color: #fff;
+
+.navbar-menu {
+  cursor: pointer;
+  width: $menu-size;
+  height: $menu-size;
+  display: flex;
+  align-items: center;
+
+  .menu {
+    background-color: $menu-color;
+    width: $menu-size;
+    height: $menu-line-height;
+
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: $menu-color;
+      width: $menu-size;
+      height: $menu-line-height;
+      margin-top: $menu-space;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      background-color: $menu-color;
+      width: $menu-size;
+      height: $menu-line-height;
+      margin-top: -$menu-space;
+    }
+
+    &.animate {
+      animation-name: menu-to-close;
+      animation-duration: 0.3s;
+
+      &:before {
+        animation-name: menu-before;
+        animation-duration: 0.3s;
+      }
+
+      &:after {
+        animation-name: menu-after;
+        animation-duration: 0.3s;
+      }
+    }
+  }
+
+  .close {
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: $menu-color;
+      width: $menu-size;
+      height: $menu-line-height;
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      background-color: $menu-color;
+      width: $menu-size;
+      height: $menu-line-height;
+      transform: rotate(45deg);
+    }
+
+    &.animate {
+      animation-name: close-to-menu;
+      animation-duration: 0.3s;
+
+      &:before {
+        animation-name: close-before;
+        animation-duration: 0.3s;
+      }
+
+      &:after {
+        animation-name: close-after;
+        animation-duration: 0.3s;
+      }
+    }
+  }
+}
+
+/* Menu keyframes */
+@keyframes menu-to-close {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  50% {
+    width: 0px;
+    height: 0px;
+  }
+  51% {
+    position: absolute;
+    background-color: transparent;
+    width: $menu-size;
+    height: $menu-line-height;
+  }
+}
+
+@keyframes menu-before {
+  0% {
+    transform: rotate(45deg);
+    margin-top: 0px;
+  }
+  50% {
+    transform: rotate(0deg);
+    margin-top: 0px;
+  }
+  100% {
+    transform: rotate(0deg);
+    margin-top: $menu-space;
+  }
+}
+
+@keyframes menu-after {
+  0% {
+    transform: rotate(-45deg);
+    margin-top: 0px;
+  }
+  50% {
+    transform: rotate(0deg);
+    margin-top: 0px;
+  }
+  100% {
+    transform: rotate(0deg);
+    margin-top: -$menu-space;
+  }
+}
+
+/* Close keyframes */
+@keyframes close-to-menu {
+  0% {
+    position: absolute;
+    background-color: transparent;
+    width: $menu-size;
+    height: $menu-line-height;
+    margin-top: $menu-space;
+  }
+  50% {
+    display: none;
+    width: $menu-size;
+    height: $menu-line-height;
+  }
+  100% {
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@keyframes close-before {
+  0% {
+    transform: rotate(0deg);
+    margin-top: -$menu-space;
+  }
+  50% {
+    transform: rotate(0deg);
+    margin-top: 0px;
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes close-after {
+  0% {
+    transform: rotate(0deg);
+    margin-top: $menu-space;
+  }
+  50% {
+    transform: rotate(0deg);
+    margin-top: 0px;
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
