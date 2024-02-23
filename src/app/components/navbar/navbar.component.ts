@@ -10,7 +10,7 @@ export class NavbarComponent {
   showBackground: boolean = false;
 
   name: string = 'Rodrigo O. Ortiz';
-  navItems: string[] = ['Home', 'About', 'Services', 'Contact'];
+  navItems: string[] = ['Home', 'About', 'Works', 'Resume', 'Contact'];
 
   @HostListener('window:scroll')
   setNavbarBgOnScroll() {

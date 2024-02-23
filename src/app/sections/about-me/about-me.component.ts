@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AnimationProperties } from 'src/app/utils/interfaces/animation-properties';
-import { AboutMeService } from './about-me.service';
+import { AboutMeService } from '../../services/about-me.service';
 
 @Component({
   selector: 'app-about-me',

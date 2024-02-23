@@ -1,9 +1,11 @@
 <section
   class="home-container container-fluid bg-black h-[80vh] relative flex justify-center items-center"
 >
+  <!-- TODO: Talvez seja melhor sem, fica mais clean -->
   <app-particles></app-particles>
 
   <div class="w-full flex items-center flex-col z-10">
+    <!-- TODO: Precisa de ajustes, está quebrando quando abre a página de forma repentina -->
     <div class="flex">
       <h1 class="main-text" [@revealAnimation]="currentPhrase">
         {{ currentPhrase }}
@@ -13,7 +15,7 @@
 
     <div class="flex gap-6 mt-6">
       <button class="outline-button tracking-wider" [@fadeSlideUpAnimation]>View work</button>
-      <button class="outline-button tracking-wider" [@fadeSlideUpAnimation]>Hire me</button>
+      <button class="outline-button tracking-wider" [@fadeSlideUpAnimation]>Contact me</button>
     </div>
   </div>
 </section>
