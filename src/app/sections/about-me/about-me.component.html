@@ -2,7 +2,7 @@
   [titleText]="'About'"
   [titleHighlight]="'Me'"
   [desc]="
-    'Lorem Ipsum is simply dummy text of the printing and typesetting. industry. Lorem Ipsum standard dummy text.'
+    'Get to know the person behind the pixels: who I am, what I do, and why I\'m passionate about it.'
   "
 ></app-section-title>
 
@@ -48,7 +48,12 @@
       appAnimateWhenScrollDirective
       [animationProperties]="btnAnimation"
     >
-      Download CV
+    <!-- TODO: Atualizar href -->
+      <a
+        href="/path/to/your/cv.pdf"
+        download="CV - Rodrigo de Oliveira Ortiz.pdf"
+        >Download CV</a
+      >
     </button>
   </div>
 </div>

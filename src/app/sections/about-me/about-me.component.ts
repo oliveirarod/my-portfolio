@@ -14,8 +14,9 @@ export class AboutMeComponent {
   };
 
   desc =
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem ipsum dolor sit amet..";
+    "Experienced full-stack developer with a strong focus on front-end development, particularly in Angular and React frameworks. With approximately 5 years of extensive experience, I've worked across various sectors, from startups to national banks. Currently, I'm employed at Bradesco Bank, where I specialize in the digital platform for corporate clients. My role involves leveraging my expertise in both front-end development, particularly in Angular framework, and back-end technologies such as Node.js and Java.";
 
+  // TODO: Incluir links de redes sociais (em ícones?)
   socialMediaList = [
     { name: 'LinkedIn', value: 'linkedin-link' },
     { name: 'GitHub', value: 'github-link' },
