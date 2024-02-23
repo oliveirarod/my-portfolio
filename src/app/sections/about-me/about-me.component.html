@@ -6,7 +6,7 @@
   "
 ></app-section-title>
 
-<div
+<section
   class="container mx-auto px-10 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-10"
 >
   <div
@@ -15,20 +15,21 @@
     [animationProperties]="imgAnimation"
   >
     <img
-      src="../../../../assets/images/self.jpg"
+      src="assets/images/self.jpg"
       alt="self"
       class="object-cover w-full h-full rounded-full"
     />
   </div>
 
   <div class="text-container flex flex-col justify-between gap-8 pr-0 lg:pr-16">
-    <div
+    <article
       class="flex flex-col justify-between gap-4"
       appAnimateWhenScrollDirective
       [animationProperties]="titleAnimation"
     >
       <h1 class="title font-bold text-center">
         {{ title.greetings }}
+
         <span class="highlight">
           {{ title.name }}
         </span>
@@ -41,14 +42,14 @@
       >
         {{ desc }}
       </p>
-    </div>
+    </article>
 
     <button
       class="outline-button mx-auto w-[180px]"
       appAnimateWhenScrollDirective
       [animationProperties]="btnAnimation"
     >
-    <!-- TODO: Atualizar href -->
+      <!-- TODO: Atualizar href -->
       <a
         href="/path/to/your/cv.pdf"
         download="CV - Rodrigo de Oliveira Ortiz.pdf"
@@ -56,4 +57,4 @@
       >
     </button>
   </div>
-</div>
+</section>
