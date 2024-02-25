@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Sections } from 'src/app/utils/interfaces/sections';
 import {
   REVEAL_ANIMATION_TOTAL_DURATION,
   revealAnimation,
@@ -14,7 +13,6 @@ import { fadeSlideUpAnimation } from 'src/app/utils/animations/fade.animation';
   animations: [revealAnimation, fadeSlideUpAnimation],
 })
 export class HomeComponent implements OnInit {
-  sectionId = Sections.HOME;
 
   phrases: string[] = [
     'I am Rodrigo de Oliveira Ortiz',

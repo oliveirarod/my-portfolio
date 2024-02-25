@@ -1,5 +1,5 @@
 @mixin box-shadow($color) {
-  box-shadow: 0px 15px 10px -12px $color;
+  box-shadow: 4px 15px 10px -12px $color;
 }
 
 @mixin outline-button($color, $hover-color) {

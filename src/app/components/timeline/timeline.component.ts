@@ -38,6 +38,7 @@ export class TimelineComponent implements OnInit {
     return hasPreviousBlock && isSameDate && hasDifferentWorkExp;
   }
 
+  // TODO: Criar tratamento de erro
   getBlocks(): void {
     this.timelineService.getBlocks().subscribe((blocks) => {
       this.blocks = blocks;

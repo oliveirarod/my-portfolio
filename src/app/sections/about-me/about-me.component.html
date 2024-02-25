@@ -44,17 +44,19 @@
       </p>
     </article>
 
-    <button
-      class="outline-button mx-auto w-[180px]"
-      appAnimateWhenScrollDirective
-      [animationProperties]="btnAnimation"
+    <!-- TODO: Atualizar href -->
+    <a
+      class="mx-auto w-[180px]"
+      href="/path/to/your/cv.pdf"
+      download="CV - Rodrigo de Oliveira Ortiz.pdf"
     >
-      <!-- TODO: Atualizar href -->
-      <a
-        href="/path/to/your/cv.pdf"
-        download="CV - Rodrigo de Oliveira Ortiz.pdf"
-        >Download CV</a
+      <button
+        class="outline-button"
+        appAnimateWhenScrollDirective
+        [animationProperties]="btnAnimation"
       >
-    </button>
+        Download CV
+      </button>
+    </a>
   </div>
 </section>

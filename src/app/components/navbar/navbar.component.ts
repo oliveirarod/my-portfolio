@@ -14,7 +14,6 @@ export class NavbarComponent {
 
   @HostListener('window:scroll')
   setNavbarBgOnScroll() {
-    console.log("tests")
     const scrollThreshold = window.innerHeight * 0.15;
     const scrolledBelowThreshold = window.scrollY >= scrollThreshold;
     this.showBackground = scrolledBelowThreshold;
