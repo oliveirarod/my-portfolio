@@ -1,7 +1,7 @@
 import { AnimationProperties } from '../interfaces/animation-properties';
 
 export function createAnimation(
-  animationProperties: AnimationProperties
+  animationProperties?: AnimationProperties
 ): AnimationProperties {
   return {
     delay: 0,

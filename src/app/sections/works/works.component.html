@@ -9,7 +9,11 @@
 <section
   class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16"
 >
-  <div *ngFor="let work of works">
+  <div
+    *ngFor="let work of works; let i = index"
+    appAnimateWhenScrollDirective
+    [animationProperties]="determineAnimationDirection(i)"
+  >
     <div
       class="shadow-md rounded-lg relative overflow-hidden"
       (click)="openWork(work.link)"
