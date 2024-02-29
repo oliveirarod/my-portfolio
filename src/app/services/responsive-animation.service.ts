@@ -1,56 +1,43 @@
-import { HostListener, Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AnimationProperties } from '../utils/interfaces/animation-properties';
 import { createAnimation } from '../utils/functions/createAnimation';
+import { slideUpAnimation } from '../utils/animations/slide-up.animation';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ResponsiveAnimationService implements OnInit {
+export class ResponsiveAnimationService {
   private windowWidth!: number;
 
-  private slideRightAnimation: AnimationProperties = createAnimation({
-    duration: 1500,
-    translateX: [-150, 0],
-  });
+  get windowWidthValue(): number {
+    return this.windowWidth;
+  }
 
-  private slideLeftAnimation: AnimationProperties = createAnimation({
-    duration: 1500,
-    translateX: [150, 0],
-  });
-
-  private opacityAnimation: AnimationProperties = createAnimation({
-    duration: 1500,
-  });
-
-  @HostListener('window:resize', ['$event'])
-  getWindowWidth(): void {
-    this.windowWidth = window.innerWidth;
+  set windowWidthValue(value: number) {
+    this.windowWidth = value;
   }
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.getWindowWidth();
-  }
-
-  // TODO: Criar enum pra melhorar manutenção? É necessário?
   determineWorksAnimationDirection(index: number): AnimationProperties {
     const isMobile = this.windowWidth < 768;
-    const isTabletOddIndex =
-      this.windowWidth >= 768 && this.windowWidth < 1280 && index % 2 !== 0;
-    const isDesktopSecondIndex =
-      this.windowWidth >= 1280 && (index + 2) % 3 === 0;
-    const isDesktopThirdIndex =
-      this.windowWidth >= 1280 && (index + 1) % 3 === 0;
+    const isTablet = this.windowWidth >= 768 && this.windowWidth < 1280;
 
-    if (isMobile || isTabletOddIndex || isDesktopThirdIndex) {
-      return this.slideLeftAnimation;
-    } else if (isDesktopSecondIndex) {
-      return this.opacityAnimation;
+    const defaultDelay = 200;
+
+    if (isMobile) {
+      return this.opacityAnimation(defaultDelay);
+    } else if (isTablet) {
+      return this.opacityAnimation((index % 2) * defaultDelay);
     } else {
-      return this.slideRightAnimation;
+      return this.opacityAnimation((index % 3) * defaultDelay);
     }
   }
 
-  
+  private opacityAnimation(delay?: number) {
+    return createAnimation({
+      delay,
+      duration: 1500,
+    });
+  }
 }

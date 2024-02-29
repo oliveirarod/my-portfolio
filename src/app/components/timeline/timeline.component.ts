@@ -1,6 +1,9 @@
-import { TimelineService } from './../../services/timeline.service';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+
+import { AnimationProperties } from 'src/app/utils/interfaces/animation-properties';
 import { TimelineBlock } from 'src/app/utils/interfaces/timeline-block';
+import { TimelineService } from 'src/app/services/timeline.service';
+import { slideUpAnimation } from 'src/app/utils/animations/slide-up.animation';
 
 @Component({
   selector: 'app-timeline',
@@ -19,12 +22,14 @@ export class TimelineComponent implements OnInit {
   blocks!: TimelineBlock[];
   blockDates: { date: string; isWorkExp: boolean }[] = [];
 
+  slideUpAnimation: AnimationProperties = slideUpAnimation;
+
+  constructor(private timelineService: TimelineService) {}
+
   ngOnInit(): void {
     this.getBlocks();
     this.setIsMobileOnResize();
   }
-
-  constructor(private timelineService: TimelineService) {}
 
   shouldPullUpBlock(index: number): boolean {
     const previousBlock = this.blockDates[index - 1];

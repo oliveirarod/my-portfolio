@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 import { WorkService } from 'src/app/services/work.service';
 import { WorkInterface } from 'src/app/utils/interfaces/work';
@@ -13,6 +13,11 @@ import { AnimationProperties } from 'src/app/utils/interfaces/animation-properti
 export class WorksComponent implements OnInit {
   works: WorkInterface[] = [];
 
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.responsiveAnimationService.windowWidthValue = window.innerWidth;
+  }
+
   constructor(
     private workService: WorkService,
     private responsiveAnimationService: ResponsiveAnimationService
@@ -20,6 +25,7 @@ export class WorksComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWorks();
+    this.onResize();
   }
 
   // TODO: Criar tratamento de erro

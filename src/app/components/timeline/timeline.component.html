@@ -17,6 +17,8 @@
           'education-block': !block.isWorkExp,
           'pulled-up-block': shouldPullUpBlock(i)
         }"
+        appAnimateWhenScrollDirective
+        [animationProperties]="slideUpAnimation"
       >
         <div class="timeline-point absolute rounded-full"></div>
 

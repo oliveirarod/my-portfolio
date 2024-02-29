@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { slideUpAnimation } from 'src/app/utils/animations/slide-up.animation';
+import { AnimationProperties } from 'src/app/utils/interfaces/animation-properties';
 
 @Component({
   selector: 'app-contact',
@@ -9,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactComponent implements OnInit {
   form!: FormGroup;
   formControls!: string[];
+
+  slideUpAnimation: AnimationProperties = slideUpAnimation;
 
   constructor(private fb: FormBuilder) {}
 
