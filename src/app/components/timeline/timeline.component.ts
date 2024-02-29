@@ -24,7 +24,9 @@ export class TimelineComponent implements OnInit {
 
   slideUpAnimation: AnimationProperties = slideUpAnimation;
 
-  constructor(private timelineService: TimelineService) {}
+  constructor(
+    private timelineService: TimelineService
+  ) {}
 
   ngOnInit(): void {
     this.getBlocks();

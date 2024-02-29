@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AnimationProperties } from '../utils/interfaces/animation-properties';
 import { createAnimation } from '../utils/functions/createAnimation';
-import { slideUpAnimation } from '../utils/animations/slide-up.animation';
 
 @Injectable({
   providedIn: 'root',
@@ -23,14 +22,12 @@ export class ResponsiveAnimationService {
     const isMobile = this.windowWidth < 768;
     const isTablet = this.windowWidth >= 768 && this.windowWidth < 1280;
 
-    const defaultDelay = 200;
-
     if (isMobile) {
-      return this.opacityAnimation(defaultDelay);
+      return this.opacityAnimation(150);
     } else if (isTablet) {
-      return this.opacityAnimation((index % 2) * defaultDelay);
+      return this.opacityAnimation((index % 2) * 200);
     } else {
-      return this.opacityAnimation((index % 3) * defaultDelay);
+      return this.opacityAnimation((index % 3) * 200);
     }
   }
 
