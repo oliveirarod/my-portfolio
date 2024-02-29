@@ -1,14 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 
 import { AnimationProperties } from 'src/app/utils/interfaces/animation-properties';
 import { AboutMeService } from '../../services/about-me.service';
+import { ScrollToService } from 'src/app/services/scroll-to.service';
+import { Sections } from 'src/app/utils/enums/sections';
 
 @Component({
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss'],
 })
-export class AboutMeComponent implements OnInit {
+export class AboutMeComponent implements OnInit, AfterViewInit {
+  @ViewChild('aboutMeSection') aboutMeSection!: ElementRef;
+
   title = { greetings: 'Hi, my name is', name: 'Rodrigo' };
   desc!: string;
 
@@ -28,10 +38,20 @@ export class AboutMeComponent implements OnInit {
   ];
   */
 
-  constructor(private aboutMeService: AboutMeService) {}
+  constructor(
+    private aboutMeService: AboutMeService,
+    private scrollToService: ScrollToService
+  ) {}
 
   ngOnInit(): void {
     this.setUpComponentData();
+  }
+
+  ngAfterViewInit(): void {
+    this.scrollToService.handleScrollToSection(
+      Sections.ABOUT,
+      this.aboutMeSection
+    );
   }
 
   setUpComponentData() {

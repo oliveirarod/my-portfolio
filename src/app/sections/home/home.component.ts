@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import {
   REVEAL_ANIMATION_TOTAL_DURATION,
@@ -6,6 +6,8 @@ import {
 } from 'src/app/utils/animations/reveal.animation';
 import { AnimationProperties } from 'src/app/utils/interfaces/animation-properties';
 import { slideUpAnimation } from 'src/app/utils/animations/slide-up.animation';
+import { ScrollToService } from 'src/app/services/scroll-to.service';
+import { Sections } from 'src/app/utils/enums/sections';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,9 @@ import { slideUpAnimation } from 'src/app/utils/animations/slide-up.animation';
   // TODO: Analisar se é melhor usar o anime.js ao invés das animações do angular
   animations: [revealAnimation],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('homeSection') homeSection!: ElementRef;
+
   phrases: string[] = [
     'I am Rodrigo de Oliveira Ortiz',
     'I am Full-Stack Developer',
@@ -26,8 +30,19 @@ export class HomeComponent implements OnInit {
 
   slideUpAnimation: AnimationProperties = slideUpAnimation;
 
+  constructor(
+    private scrollToService: ScrollToService
+  ) {}
+
   ngOnInit() {
     this.startAnimation();
+  }
+
+  ngAfterViewInit(): void {
+    this.scrollToService.handleScrollToSection(
+      Sections.HOME,
+      this.homeSection
+    );
   }
 
   startAnimation() {

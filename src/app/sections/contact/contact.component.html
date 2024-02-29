@@ -5,7 +5,7 @@
 ></app-section-title>
 
 <!-- TODO: Ajustar animacoes e validações -->
-<form class="container mx-auto px-6" [formGroup]="form">
+<form #contactSection class="container mx-auto px-6" [formGroup]="form">
   <div class="lg:flex gap-12 mb-4">
     <ng-container *ngFor="let formControl of formControls">
       <div
