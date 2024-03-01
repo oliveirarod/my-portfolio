@@ -4,14 +4,16 @@
 >
   <div class="h-8 flex items-center justify-between">
     <div class="flex items-center">
-      <!-- TODO: Add a link to the home -->
-      <a href="#" class="text-base font-bold text-white">{{ name }}</a>
+      <a
+        class="text-base font-bold text-white"
+        (click)="goToSection(sections.HOME)"
+        >{{ name }}</a
+      >
     </div>
 
     <div class="hidden md:flex gap-4">
       <ng-container *ngFor="let item of navItems">
-        <!-- TODO: Add a link to the respective section -->
-        <span class="text-white cursor-pointer" (click)="scrollToSection(item)">
+        <span class="text-white cursor-pointer" (click)="goToSection(item)">
           {{ item }}
         </span>
       </ng-container>
@@ -19,7 +21,6 @@
 
     <app-hamburger-menu
       class="md:hidden"
-      (onMenuClick)="toggleMenu($event)"
     ></app-hamburger-menu>
   </div>
 </nav>
@@ -31,7 +32,7 @@
 >
   <div class="flex flex-col items-center justify-center gap-12 h-full">
     <ng-container *ngFor="let item of navItems">
-      <span class="text-2xl cursor-pointer" (click)="scrollToSection(item)">
+      <span class="text-2xl cursor-pointer" (click)="goToSection(item)">
         {{ item }}
       </span>
     </ng-container>

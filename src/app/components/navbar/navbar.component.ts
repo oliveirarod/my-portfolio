@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+
+import { NavbarService } from 'src/app/services/navbar.service';
 import { ScrollToService } from 'src/app/services/scroll-to.service';
 import { Sections } from 'src/app/utils/enums/sections';
 
@@ -8,7 +10,9 @@ import { Sections } from 'src/app/utils/enums/sections';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  isMenuOpen: boolean = false;
+  sections = Sections;
+
+  isMenuOpen!: boolean;
   showBackground: boolean = false;
 
   name: string = 'Rodrigo O. Ortiz';
@@ -18,20 +22,29 @@ export class NavbarComponent implements OnInit {
   setNavbarBgOnScroll() {
     const scrollThreshold = window.innerHeight * 0.15;
     const scrolledBelowThreshold = window.scrollY >= scrollThreshold;
+
     this.showBackground = scrolledBelowThreshold;
   }
 
-  constructor(private scrollToService: ScrollToService) {}
+  constructor(
+    private navbarService: NavbarService,
+    private scrollToService: ScrollToService
+  ) {}
 
   ngOnInit(): void {
     this.setNavItems();
+    this.subscribeToIsMenuOpen();
   }
 
-  toggleMenu(isMenuOpen: boolean) {
-    this.isMenuOpen = isMenuOpen;
+  subscribeToIsMenuOpen() {
+    this.navbarService.isMenuOpen$.subscribe((isMenuOpen) => {
+      this.isMenuOpen = isMenuOpen;
+    });
   }
 
-  scrollToSection(section: string) {
+  goToSection(section: string) {
+    this.isMenuOpen ? (this.navbarService.isMenuOpen = false) : null;
+
     this.scrollToService.scrollToSection(section);
   }
 
