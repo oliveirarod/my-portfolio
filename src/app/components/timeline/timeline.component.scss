@@ -2,7 +2,7 @@
 @import "../../../styles/mixins";
 
 // Breakpoints
-$desktop-view-breakpoint: 795px;
+$desktop-view-breakpoint: 1024px;
 
 // Variables
 $line-position-mobile: 5%;
@@ -118,7 +118,7 @@ $content-margin-left-mobile: 10vw;
       }
 
       &.pulled-up-block {
-        margin-top: -10rem;
+        margin-top: -17rem;
       }
 
       .timeline-point {

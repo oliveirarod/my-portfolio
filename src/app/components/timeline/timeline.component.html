@@ -11,7 +11,7 @@
   <section class="timeline relative">
     <ng-container *ngFor="let block of blocks; let i = index">
       <div
-        class="timeline-item w-full d-flex flex-col relative flex mb-12 last:mb-0"
+        class="timeline-item w-full flex flex-col relative mb-12 last:mb-0"
         [ngClass]="{
           'work-block': block.isWorkExp,
           'education-block': !block.isWorkExp,
@@ -26,13 +26,13 @@
           {{ block.date }}
           <ng-container *ngIf="showHeaders && isMobile">
             <span class="mx-2">-</span>
-            <span>{{ block.isWorkExp ? "Qualification" : "Experience" }}</span>
+            <span>{{ block.isWorkExp ? "Experience" : "Qualification" }}</span>
           </ng-container>
         </div>
 
         <div class="timeline-content relative py-4 px-8 shadow-xl">
-          <h2>{{ block.title }}</h2>
-          <p>{{ block.desc }}</p>
+          <h2 class="font-bold mb-4 text-lg">{{ block.title }}</h2>
+          <span [innerHTML]="block.desc"></span>
         </div>
       </div>
     </ng-container>
