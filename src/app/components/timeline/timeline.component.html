@@ -11,12 +11,14 @@
   <section class="timeline relative">
     <ng-container *ngFor="let block of blocks; let i = index">
       <div
-        class="timeline-item w-full d-flex flex-col relative flex mb-6 last:mb-0"
+        class="timeline-item w-full d-flex flex-col relative flex mb-12 last:mb-0"
         [ngClass]="{
           'work-block': block.isWorkExp,
           'education-block': !block.isWorkExp,
           'pulled-up-block': shouldPullUpBlock(i)
         }"
+        appAnimateWhenScrollDirective
+        [animationProperties]="slideUpAnimation"
       >
         <div class="timeline-point absolute rounded-full"></div>
 

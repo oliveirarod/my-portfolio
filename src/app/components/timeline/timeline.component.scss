@@ -58,7 +58,7 @@ $content-margin-left-mobile: 10vw;
       width: $content-width-mobile;
       margin-left: $content-margin-left-mobile;
       border-radius: 2rem 0 0 2rem;
-      @include box-shadow(rgba(0, 0, 0, 0.7));
+      @include box-shadow(rgba(0, 0, 0, 0.2));
 
       &::before {
         content: "";

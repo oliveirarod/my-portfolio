@@ -9,6 +9,23 @@ import anime from 'animejs/lib/anime.es.js';
 
 import { AnimationProperties } from '../interfaces/animation-properties';
 
+/**
+ * `appAnimateWhenScrollDirective` is an Angular directive used to animate elements when they enter the viewport on scroll.
+ * To use this directive, follow these steps:
+ *
+ * 1. Import `DirectivesModule` in your module and declare it.
+ * 2. Add `appAnimateWhenScrollDirective` to the element you want to animate in your template.
+ * 3. Bind the `[animationProperties]` input with the desired animation properties.
+ *
+ * Example usage:
+ *
+ * <div 
+ *  appAnimateWhenScrollDirective
+ *  [animationProperties]="{ opacity: [0, 1], translateY: ['20px', '0'] }">
+ *   Content to be animated
+ * </div>
+ */
+
 @Directive({
   selector: '[appAnimateWhenScrollDirective]',
 })
@@ -26,18 +43,16 @@ export class AnimateWhenScrollDirective implements OnInit {
   @HostListener('window:scroll', ['$event'])
   checkScroll(): void {
     const element: HTMLElement = this.elementRef.nativeElement;
-    const elementPosition = element.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight;
+    const shouldAnimate =
+      element.getBoundingClientRect().top < window.innerHeight;
 
-    if (!this.animationExecuted && elementPosition < screenPosition) {
+    if (!this.animationExecuted && shouldAnimate) {
       this.animationExecuted = true;
 
       anime({
         targets: element,
         ...this.animationProperties,
       });
-    } else if (this.animationExecuted && elementPosition >= screenPosition) {
-      this.animationExecuted = false;
     }
   }
 }

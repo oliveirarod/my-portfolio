@@ -2,10 +2,29 @@
   [titleText]="'My'"
   [titleHighlight]="'Works'"
   [desc]="
-    'Lorem Ipsum is simply dummy text of the printing and typesetting. industry. Lorem Ipsum standard dummy text.'
+    'Explore my projects, the fusion of design and functionality. Here you\'ll find some of my past work, but let\'s bring your vision to life together?'
   "
 ></app-section-title>
 
-<section>
-	
+<section
+  #worksSection
+  class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-16"
+>
+  <div
+    *ngFor="let work of works; let i = index"
+    appAnimateWhenScrollDirective
+    [animationProperties]="determineAnimationDirection(i)"
+  >
+    <div
+      class="shadow-md rounded-lg relative overflow-hidden"
+      (click)="openWork(work.link)"
+    >
+      <img class="card-img" [src]="work.img" alt="project image example" />
+    </div>
+
+    <article class="text-center flex flex-col gap-1 mt-4">
+      <h3 class="text-base">{{ work.title }}</h3>
+      <p class="text-gray-400 text-sm">{{ work.desc }}</p>
+    </article>
+  </div>
 </section>

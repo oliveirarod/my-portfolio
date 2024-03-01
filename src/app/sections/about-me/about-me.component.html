@@ -7,6 +7,7 @@
 ></app-section-title>
 
 <section
+  #aboutMeSection
   class="container mx-auto px-10 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-10"
 >
   <div
@@ -44,17 +45,19 @@
       </p>
     </article>
 
-    <button
-      class="outline-button mx-auto w-[180px]"
-      appAnimateWhenScrollDirective
-      [animationProperties]="btnAnimation"
+    <!-- TODO: Atualizar href -->
+    <a
+      class="mx-auto w-[180px]"
+      href="/path/to/your/cv.pdf"
+      download="CV - Rodrigo de Oliveira Ortiz.pdf"
     >
-      <!-- TODO: Atualizar href -->
-      <a
-        href="/path/to/your/cv.pdf"
-        download="CV - Rodrigo de Oliveira Ortiz.pdf"
-        >Download CV</a
+      <button
+        class="outline-button"
+        appAnimateWhenScrollDirective
+        [animationProperties]="btnAnimation"
       >
-    </button>
+        Download CV
+      </button>
+    </a>
   </div>
 </section>

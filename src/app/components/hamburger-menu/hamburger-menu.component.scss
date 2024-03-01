@@ -3,7 +3,7 @@ $menu-space: 8px;
 $menu-size: ($menu-space * 2) + ($menu-line-height * 3);
 $menu-color: #fff;
 
-.navbar-menu {
+.menu-container {
   cursor: pointer;
   width: $menu-size;
   height: $menu-size;

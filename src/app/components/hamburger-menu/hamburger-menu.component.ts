@@ -3,20 +3,21 @@ import {
   ElementRef,
   EventEmitter,
   HostListener,
+  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
+import { NavbarService } from 'src/app/services/navbar.service';
 
 @Component({
   selector: 'app-hamburger-menu',
   templateUrl: './hamburger-menu.component.html',
   styleUrls: ['./hamburger-menu.component.scss'],
 })
-export class HamburgerMenuComponent {
-  isMenuOpen: boolean = false;
-  @ViewChild('navbarMenu') navbarMenu!: ElementRef<HTMLDivElement>;
+export class HamburgerMenuComponent implements OnInit {
+  @ViewChild('hamburgerMenu') hamburgerMenu!: ElementRef<HTMLDivElement>;
 
-  @Output() onMenuClick = new EventEmitter<boolean>();
+  isMenuOpen!: boolean;
 
   @HostListener('window:resize')
   onResize() {
@@ -25,28 +26,32 @@ export class HamburgerMenuComponent {
     }
   }
 
-  constructor() {}
+  constructor(private navbarService: NavbarService) {}
+
+  ngOnInit(): void {
+    this.subscribeToIsMenuOpen();
+  }
+
+  subscribeToIsMenuOpen() {
+    this.navbarService.isMenuOpen$.subscribe((isMenuOpen) => {
+      if (this.isMenuOpen !== isMenuOpen) {
+        this.animateMenu();
+      }
+      this.isMenuOpen = isMenuOpen;
+    });
+  }
 
   emitMenuChange() {
-    this.isMenuOpen = !this.isMenuOpen;
-    this.animateMenu();
-
-    this.onMenuClick.emit(this.isMenuOpen);
+    this.navbarService.isMenuOpen = !this.navbarService.isMenuOpen;
   }
 
   animateMenu() {
-    const menu = this.navbarMenu.nativeElement;
-    const isOpen = menu.classList.contains('menu');
+    if (!this.hamburgerMenu) return;
 
-    menu.classList.toggle('close', isOpen);
-    menu.classList.toggle('menu', !isOpen);
+    const menuClassList = this.hamburgerMenu.nativeElement.classList;
+    const isOpen = menuClassList.contains('menu');
 
-    this.hideScrollbar();
-  }
-
-  hideScrollbar() {
-    this.isMenuOpen
-      ? (document.documentElement.style.overflow = 'hidden')
-      : (document.documentElement.style.overflow = '');
+    menuClassList.toggle('close', isOpen);
+    menuClassList.toggle('menu', !isOpen);
   }
 }
