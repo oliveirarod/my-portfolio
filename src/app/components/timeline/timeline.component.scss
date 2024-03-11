@@ -58,7 +58,6 @@ $content-margin-left-mobile: 10vw;
       width: $content-width-mobile;
       margin-left: $content-margin-left-mobile;
       border-radius: 2rem 0 0 2rem;
-      @include box-shadow(rgba(0, 0, 0, 0.2));
 
       &::before {
         content: "";
@@ -74,7 +73,6 @@ $content-margin-left-mobile: 10vw;
 
     .timeline-content {
       background: $white-color;
-      @include box-shadow(rgba(0, 0, 0, 0.3));
       margin-left: calc(
         $content-margin-left-mobile + $header-detail-size
       );
