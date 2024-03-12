@@ -13,6 +13,7 @@ import { ElementRef, EventEmitter, Injectable } from '@angular/core';
  * 
  * import { Component, ElementRef } from '@angular/core';
  * import { ScrollToService } from 'path-to-scroll-to-service';
+ * import { Sections } from 'path-to-scroll-to-service';
  * 
  * @Component({
  *   selector: 'app-your-component',
@@ -26,8 +27,8 @@ import { ElementRef, EventEmitter, Injectable } from '@angular/core';
  *   // Call the handleScrollToSection method in the ngAfterViewInit lifecycle hook
  *   ngAfterViewInit(): void {
  *     this.scrollToService.handleScrollToSection(
- *       'about-section',
- *       this.aboutSectionElement
+ *       Sections.ABOUT_ME,
+ *       this.sectionRef
  *     );
  *   }
  * 

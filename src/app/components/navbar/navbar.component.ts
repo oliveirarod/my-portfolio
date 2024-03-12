@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.setNavItems();
+    this.navItems = this.getNavItems();
     this.subscribeToIsMenuOpen();
   }
 
@@ -48,7 +48,11 @@ export class NavbarComponent implements OnInit {
     this.scrollToService.scrollToSection(section);
   }
 
-  setNavItems() {
-    this.navItems = Object.values(Sections);
+  getNavItems() {
+    const excludedSections = ['Works'];
+
+    return Object.values(Sections).filter((section: string) =>
+      excludedSections.includes(section) ? '' : section
+    );
   }
 }
